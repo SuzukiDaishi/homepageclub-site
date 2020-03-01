@@ -1,0 +1,24 @@
+{
+  "name": "homepage-club-site",
+  "version": "1.0.0",
+  "description": "My dandy Nuxt.js project",
+  "author": "SuzukiDaishi",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "animejs": "^3.1.0",
+    "nuxt": "^2.0.0"
+  },
+  "devDependencies": {
+    "node-sass": "^4.13.1",
+    "nodemon": "^1.18.9",
+    "nuxt-svg-loader": "^1.2.0",
+    "sass-loader": "^8.0.2",
+    "vue-svg-inline-loader": "^1.4.5"
+  }
+}

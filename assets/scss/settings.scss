@@ -1,0 +1,26 @@
+
+/** Default variable settings */
+
+$bg-color: #111;
+
+$pc: 1024px;
+$tab: 680px;
+$sp: 480px;
+
+@mixin pc {
+  @media (min-width: ($pc)) {
+    @content;
+  }
+}
+
+@mixin tab {
+  @media (min-width: ($tab)) {
+    @content;
+  }
+}
+
+@mixin sp {
+  @media (min-width: ($sp)) {
+    @content;
+  }
+}
