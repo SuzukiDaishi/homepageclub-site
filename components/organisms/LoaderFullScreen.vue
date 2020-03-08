@@ -1,6 +1,6 @@
 <template>
 <div :class="$style.wrapper">
-    <CloseBox style="z-index:100" ref="closeBox"/>
+    <CloseBox style="z-index:100;width:100vw;" ref="closeBox"/>
     <cyber-box>
         <div :class="[$style.wrapper, $style.translucent_filter, $style.hero_center_wrapper]">
             <h1 :class="[$style.title, $style.glitch]" :data-text="dispTitle">

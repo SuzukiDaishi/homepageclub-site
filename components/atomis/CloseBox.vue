@@ -1,6 +1,8 @@
 <template>
     <div :class="$style.wrapper">
-        <div :class="$style.boll"></div>
+        <div :class="$style.animebox1"></div>
+        <div :class="$style.animebox2"></div>
+        <div :class="$style.animebox3"></div>
     </div>
 </template>
 
@@ -11,15 +13,35 @@ export default {
     methods: {
         async close() {
             let self = this
-            const size = Math.max(self.$el.clientWidth, self.$el.clientHeight)*3
+            anime({
+                targets: self.$el.children[0],
+                width: '125%',
+                easing: 'easeInOutExpo',
+                duration: 1500,
+            })
+            await this.sleep(50)
+            anime({
+                targets: self.$el.children[1],
+                width: '125%',
+                easing: 'easeInOutExpo',
+                duration: 1500,
+            })
+            await this.sleep(50)
             return anime({
-                targets: self.$el.firstChild,
-                width: `${size}px`,
-                height: `${size}px`,
-                easing: 'easeInOutQuad',
-                duration: 5*1000,
-            }).finished
-        }
+                targets: self.$el.children[2],
+                width: '125%',
+                easing: 'easeInOutExpo',
+                duration: 1500,
+            })
+            .finished
+        },
+        async sleep(waitSeconds, someFunction=()=>{}) {
+        return new Promise(resolve => {
+          setTimeout(() => {
+            resolve(someFunction())
+          }, waitSeconds)
+        })
+      } 
     }
 }
 </script>
@@ -33,14 +55,34 @@ export default {
     height: 100%;
     overflow: hidden;
 }
-.boll {
+.animebox1 {
     position: absolute;
     top: 0%;
     right: 0%;
-    background: radial-gradient(#fff, #fff, rgba(#fff, 0));
-    border-radius: 50%;
-    width: 0px;
-    height: 0px;
-    transform: translateY(-50%) translateX(50%);
+    background: #ff00c1;
+    width: 0%;
+    height: 100%;
+    transform: skewX(-20deg);
+    transform-origin: bottom left;
+}
+.animebox2 {
+    position: absolute;
+    top: 0%;
+    right: 0%;
+    background: #00fff9;
+    width: 0%;
+    height: 100%;
+    transform: skewX(-20deg);
+    transform-origin: bottom left;
+}
+.animebox3 {
+    position: absolute;
+    top: 0%;
+    right: 0%;
+    background: #fff;
+    width: 0%;
+    height: 100%;
+    transform: skewX(-20deg);
+    transform-origin: bottom left;
 }
 </style>
