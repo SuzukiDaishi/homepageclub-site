@@ -47,7 +47,7 @@ export default {
 </script>
 
 <style lang="scss" module>
-@import 'assets/scss/settings.scss';
+@import '~assets/scss/settings.scss';
 
 .wrapper {
     position: absolute;
@@ -59,7 +59,7 @@ export default {
     position: absolute;
     top: 0%;
     right: 0%;
-    background: #ff00c1;
+    background: $loader-effect-color1;
     width: 0%;
     height: 100%;
     transform: skewX(-20deg);
@@ -69,7 +69,7 @@ export default {
     position: absolute;
     top: 0%;
     right: 0%;
-    background: #00fff9;
+    background: $loader-effect-color2;
     width: 0%;
     height: 100%;
     transform: skewX(-20deg);
@@ -79,7 +79,7 @@ export default {
     position: absolute;
     top: 0%;
     right: 0%;
-    background: #fff;
+    background: $bg-color;
     width: 0%;
     height: 100%;
     transform: skewX(-20deg);

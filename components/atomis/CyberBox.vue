@@ -11,11 +11,13 @@ export default {
 </script>
 
 <style lang="scss" module>
+@import '~assets/scss/settings.scss';
+
 .cyber_bg {
     width: 100%;
     height: 100%;
     background-image: url('~assets/images/cyberLine.svg');
     background-size: cover;
-    color: white;
+    color: $bg-color;
 }
 </style>

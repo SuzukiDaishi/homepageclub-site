@@ -61,7 +61,7 @@ export default {
 </script>
 
 <style lang="scss" module>
-@import 'assets/scss/settings.scss';
+@import '~assets/scss/settings.scss';
 
 .wrapper {
     width: 100%;
@@ -99,7 +99,7 @@ h1.title {
 
 .glitch {
 	position: relative;
-	color: white;
+	color: $loader-text-color;
 	font-size: 4em;
 	letter-spacing: .5em;
 	animation: glitch-skew 1s infinite linear alternate-reverse;
@@ -107,7 +107,7 @@ h1.title {
 	&::before{
         @include glitchCopy;
 		left: 2px;
-		text-shadow: -2px 0 #ff00c1;
+		text-shadow: -2px 0 $loader-effect-color1;
 		clip: rect(44px, 450px, 56px, 0);
 		animation: glitch-anim 5s infinite linear alternate-reverse;
 	}
@@ -115,7 +115,7 @@ h1.title {
 	&::after {
 		@include glitchCopy;
 		left: -2px;
-		text-shadow: -2px 0 #00fff9, 2px 2px #ff00c1;
+		text-shadow: -2px 0 $loader-effect-color2, 2px 2px $loader-effect-color1;
 		animation: glitch-anim2 1s infinite linear alternate-reverse;
 	}
 }

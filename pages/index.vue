@@ -15,11 +15,11 @@ export default {
 </script>
 
 <style lang="scss">
-@import 'assets/scss/settings.scss';
+@import '~assets/scss/settings.scss';
 
 .container {
     width: 100vw;
     height: 100vh;
-    background: $bg-color;
+    background: $loader-bg-color;
 }
 </style>
