@@ -19,14 +19,14 @@ export default {
                 easing: 'easeInOutExpo',
                 duration: 1500,
             })
-            await this.sleep(50)
+            await this.sleep(100)
             anime({
                 targets: self.$el.children[1],
                 width: '125%',
                 easing: 'easeInOutExpo',
                 duration: 1500,
             })
-            await this.sleep(50)
+            await this.sleep(100)
             return anime({
                 targets: self.$el.children[2],
                 width: '125%',

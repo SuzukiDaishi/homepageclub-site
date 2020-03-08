@@ -1,12 +1,14 @@
 <template>
-<div>
-    ここまでできた
-</div>
+    <top-page />
 </template>
 
 <script>
-export default {
+import TopPage from '~/components/organisms/TopPage.vue'
 
+export default {
+    components: {
+        TopPage,
+    }
 }
 </script>
 

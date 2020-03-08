@@ -1,14 +1,14 @@
 <template>
-<div :class="$style.wrapper">
-    <CloseBox style="z-index:100;width:100vw;" ref="closeBox"/>
-    <cyber-box>
-        <div :class="[$style.wrapper, $style.translucent_filter, $style.hero_center_wrapper]">
-            <h1 :class="[$style.title, $style.glitch]" :data-text="dispTitle">
-                {{ dispTitle }}
-            </h1>
-        </div>
-    </cyber-box>
-</div>
+  <div :class="$style.wrapper">
+      <close-box style="z-index:100;" ref="closeBox" />
+      <cyber-box>
+          <div :class="[$style.wrapper, $style.translucent_filter, $style.hero_center_wrapper]">
+              <h1 :class="[$style.title, $style.glitch]" :data-text="dispTitle">
+                  {{ dispTitle }}
+              </h1>
+          </div>
+      </cyber-box>
+  </div>
 </template>
 
 <script>
@@ -29,7 +29,7 @@ export default {
       }
     },
     async mounted() {
-      await this.sleep(1000)
+      await this.sleep(100)
       await this.typing()
       await this.sleep(1000)
       await this.$refs.closeBox.close()
