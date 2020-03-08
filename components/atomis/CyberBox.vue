@@ -16,6 +16,7 @@ export default {
 .cyber_bg {
     width: 100%;
     height: 100%;
+    overflow: hidden;
     background-image: url('~assets/images/cyberLine.svg');
     background-size: cover;
     color: $bg-color;

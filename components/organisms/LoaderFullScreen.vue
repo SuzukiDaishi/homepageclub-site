@@ -75,11 +75,14 @@ export default {
     align-items: center;
 }
 h1.title {
-    font-size: 2em;
-    @include pc {
-        font-size: 4em;
+    font-size: 1.2em;
+    @include sp {
+        font-size: 1.5em;
     }
     @include tab {
+        font-size: 3em;
+    }
+    @include pc {
         font-size: 4em;
     }
 }

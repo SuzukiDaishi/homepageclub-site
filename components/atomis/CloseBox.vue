@@ -49,6 +49,25 @@ export default {
 <style lang="scss" module>
 @import '~assets/scss/settings.scss';
 
+@mixin animebox($bgcolor: $bg-color) {
+    position: absolute;
+    top: 0%;
+    right: 0%;
+    background: $bgcolor;
+    width: 0%;
+    height: 100%;
+    @include pc {
+        transform: skewX(-20deg);
+    }
+    @include tab {
+        transform: skewX(-10deg);
+    }
+    @include sp {
+        transform: skewX(-10deg);
+    }
+    transform-origin: bottom left;
+}
+
 .wrapper {
     position: absolute;
     width: 100%;
@@ -56,33 +75,12 @@ export default {
     overflow: hidden;
 }
 .animebox1 {
-    position: absolute;
-    top: 0%;
-    right: 0%;
-    background: $loader-effect-color1;
-    width: 0%;
-    height: 100%;
-    transform: skewX(-20deg);
-    transform-origin: bottom left;
+    @include animebox($loader-effect-color1) ;
 }
 .animebox2 {
-    position: absolute;
-    top: 0%;
-    right: 0%;
-    background: $loader-effect-color2;
-    width: 0%;
-    height: 100%;
-    transform: skewX(-20deg);
-    transform-origin: bottom left;
+    @include animebox($loader-effect-color2) ;
 }
 .animebox3 {
-    position: absolute;
-    top: 0%;
-    right: 0%;
-    background: $bg-color;
-    width: 0%;
-    height: 100%;
-    transform: skewX(-20deg);
-    transform-origin: bottom left;
+    @include animebox() ;
 }
 </style>
