@@ -1,16 +1,30 @@
 <template>
     <div :class="$style.wrapper">
         <fixed-header :sections="sections" :container="'slidebox'" />
+        {{ scrollY }}  // あとで消す
         <fixed-sidebar />
         <main id="slidebox" :class="$style.container">
             <section id="top" :class="[$style.area, $style.area_top]">
-                <h1>こんにちわ、ホームページ倶楽部です。</h1>
+                <h1>
+                    {{top.hello}}
+                </h1>
             </section>
-            <section :id="sections[0]" :class="$style.area" style="background:blue;"></section>
-            <section :id="sections[1]" :class="$style.area" style="background:green;"></section>
-            <section :id="sections[2]" :class="$style.area" style="background:red;"></section>
-            <section :id="sections[3]" :class="$style.area" style="background:blue;"></section>
-            <section :id="sections[4]" :class="$style.area" style="background:green;"></section>
+            <hr :class="$style.line"/>
+            <section :id="sections[0]" :class="[$style.area, $style.area_mission]">
+                <div :class="$style.mission_block">
+                    <span>{{ mission.section }}</span>
+                    <h2>{{ mission.title }}</h2>
+                    <article>{{ mission.content }}</article>
+                </div>
+            </section>
+            <hr :class="$style.line"/>
+            <section :id="sections[1]" :class="$style.area"></section>
+            <hr :class="$style.line"/>
+            <section :id="sections[2]" :class="$style.area"></section>
+            <hr :class="$style.line"/>
+            <section :id="sections[3]" :class="$style.area"></section>
+            <hr :class="$style.line"/>
+            <section :id="sections[4]" :class="$style.area"></section>
         </main>
     </div>
 </template>
@@ -33,17 +47,41 @@ export default {
                 texts['HEADER_WORKS'],
                 texts['HEADER_MEMBERS'],
                 texts['HEADER_CONTACT'],
-            ]
+            ],
+            top: {
+                hello: texts['MISSION_TOP_HELLO']
+            },
+            mission: {
+                section: texts['MISSION_SECTION'],
+                title: texts['MISSION_TITLE'],
+                content: texts['MISSION_CONTENT']
+            },
+            scrollY: 0,
+        }
+    },
+    mounted() {
+        let self = this
+        this.$el.querySelector('#slidebox').onscroll = function() {
+            self.handleScroll(this);
+        }
+    },
+    methods: {
+        handleScroll(event) {
+            this.scrollY = event.scrollTop
         }
     }
 }
 </script>
+
+<style lang="scss">
+</style>
 
 <style lang="scss" module>
 @import '~assets/scss/settings.scss';
 
 .wrapper {
     width:100%;
+    overflow: hidden;
     background: $bg-color;
 }
 .container {
@@ -67,5 +105,16 @@ export default {
         }
     }
 }
-
+.mission_block {
+    &>article {
+        white-space:pre-wrap;
+        word-wrap:break-word;
+    }
+}
+hr.line {
+    width: 90%;
+    height: 1px;
+    background: $line-color;
+    border: none;
+}
 </style>
