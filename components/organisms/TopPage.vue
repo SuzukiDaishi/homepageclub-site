@@ -18,7 +18,7 @@
 <script>
 import FixedHeader from '~/components/molecules/FixedHeader.vue'
 import FixedSidebar from '~/components/molecules/FixedSidebar.vue'
-import viewText from  '~/assets/textfiles/viewText.json'
+import texts from '~/assets/configs/toppageTexts.json'
 
 export default {
     components: {
@@ -27,7 +27,13 @@ export default {
     },
     data() {
         return {
-            sections: viewText['SECTIONS']
+            sections: [
+                texts['HEADER_MISSION'],
+                texts['HEADER_SERVICE'],
+                texts['HEADER_WORKS'],
+                texts['HEADER_MEMBERS'],
+                texts['HEADER_CONTACT'],
+            ]
         }
     }
 }

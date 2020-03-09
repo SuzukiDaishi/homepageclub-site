@@ -5,12 +5,12 @@
 </template>
 
 <script>
-import viewText from  '~/assets/textfiles/viewText.json'
+import texts from '~/assets/configs/toppageTexts.json'
 
 export default {
     data() {
         return {
-            designedBy: viewText['DESIGNED_BY']
+            designedBy: texts['DESIGNED_BY']
         }
     }
 }
