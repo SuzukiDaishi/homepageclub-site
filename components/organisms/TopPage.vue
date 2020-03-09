@@ -1,12 +1,11 @@
 <template>
     <div :class="$style.wrapper">
         <fixed-header :sections="sections" :container="'slidebox'" />
-        {{ scrollY }}  // あとで消す
         <fixed-sidebar />
         <main id="slidebox" :class="$style.container">
             <section id="top" :class="[$style.area, $style.area_top]">
                 <h1>
-                    {{top.hello}}
+                    {{top.hello}} {{ scrollY }}  // あとで消す
                 </h1>
             </section>
             <hr :class="$style.line"/>
