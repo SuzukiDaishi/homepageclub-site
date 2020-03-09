@@ -1,7 +1,7 @@
 <template>
-<div class="container">
-    <loader-full-screen />
-</div>
+    <div class="container">
+        <loader-full-screen />
+    </div>
 </template>
 
 <script>

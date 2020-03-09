@@ -5,6 +5,11 @@
 </template>
 
 <style>
+
+html {
+    overscroll-behavior: none;
+}
+
 /* css resets */
 *,
 *::before,

@@ -15,6 +15,7 @@
 import anime from 'animejs'
 import CyberBox from '~/components/atomis/CyberBox.vue'
 import CloseBox from '~/components/atomis/CloseBox.vue'
+import viewText from  '~/assets/textfiles/viewText.json'
 
 export default {
     components: {
@@ -23,7 +24,7 @@ export default {
     },
     data() {
       return {
-        title: 'ホームページ倶楽部',
+        title: viewText['COMPANY_NAME'],
         titleDispCount: 0,
         dispTitle: ''
       }
