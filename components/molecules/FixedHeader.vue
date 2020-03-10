@@ -1,25 +1,32 @@
 <template>
     <header :class="$style.container">
         <nav :class="$style.endblock">
-            <nuxt-link 
-                :class="$style.nav_item"
-                v-scroll-to="{
-                    el: `#${section}`,
-                    container: `#${container}`,
-                    duration: 500,
-                }"
-                v-for="(section, i) in sections"
-                :key="i"
-                to >
-                {{ section }}
-            </nuxt-link>
+            <fade-effect tag="div">
+                <nuxt-link 
+                    :class="$style.nav_item"
+                    v-scroll-to="{
+                        el: `#${section}`,
+                        container: `#${container}`,
+                        duration: 500,
+                    }"
+                    v-for="(section, i) in sections"
+                    :key="i"
+                    to >
+                    {{ section }}
+                </nuxt-link>
+            </fade-effect>
         </nav>
     </header>
 </template>
 
 <script>
+import FadeEffect from '~/components/atomis/FadeEffect.vue'
+
 export default {
     props: ['sections', 'container'],
+    components: {
+        FadeEffect,
+    }
 }
 </script>
 

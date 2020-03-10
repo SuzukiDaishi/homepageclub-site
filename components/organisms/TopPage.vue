@@ -1,29 +1,45 @@
 <template>
     <div :class="$style.wrapper">
-        <fixed-header :sections="sections" :container="'slidebox'" />
+        <fixed-header :sections="sections" :container="'slidebox'"/>
         <fixed-sidebar />
         <main id="slidebox" :class="$style.container">
             <section id="top" :class="[$style.area, $style.area_top]">
                 <h1>
-                    {{top.hello}} {{ scrollY }}  // あとで消す
+                    {{top.hello}}
                 </h1>
             </section>
             <hr :class="$style.line"/>
             <section :id="sections[0]" :class="[$style.area, $style.area_mission]">
-                <div :class="$style.mission_block">
+                <fade-effect tag="div" :scrollY="scrollY" :class="$style.mission_block">
                     <span>{{ mission.section }}</span>
                     <h2>{{ mission.title }}</h2>
                     <article>{{ mission.content }}</article>
-                </div>
+                </fade-effect>
             </section>
             <hr :class="$style.line"/>
-            <section :id="sections[1]" :class="$style.area"></section>
+            <section :id="sections[1]" :class="$style.area">
+                <fade-effect tag="div" :scrollY="scrollY">
+                    aaaa
+                </fade-effect>
+            </section>
             <hr :class="$style.line"/>
-            <section :id="sections[2]" :class="$style.area"></section>
+            <section :id="sections[2]" :class="$style.area">
+                <fade-effect tag="div" :scrollY="scrollY">
+                    bbb
+                </fade-effect>
+            </section>
             <hr :class="$style.line"/>
-            <section :id="sections[3]" :class="$style.area"></section>
+            <section :id="sections[3]" :class="$style.area">
+                <fade-effect tag="div" :scrollY="scrollY">
+                    ccc
+                </fade-effect>
+            </section>
             <hr :class="$style.line"/>
-            <section :id="sections[4]" :class="$style.area"></section>
+            <section :id="sections[4]" :class="$style.area">
+                <fade-effect tag="div" :scrollY="scrollY">
+                    dddd
+                </fade-effect>
+            </section>
         </main>
     </div>
 </template>
@@ -31,12 +47,14 @@
 <script>
 import FixedHeader from '~/components/molecules/FixedHeader.vue'
 import FixedSidebar from '~/components/molecules/FixedSidebar.vue'
+import FadeEffect from '~/components/atomis/FadeEffect.vue'
 import texts from '~/assets/configs/toppageTexts.json'
 
 export default {
     components: {
         FixedHeader,
         FixedSidebar,
+        FadeEffect,
     },
     data() {
         return {
