@@ -3,42 +3,44 @@
         <fixed-header :sections="sections" :container="'slidebox'"/>
         <fixed-sidebar />
         <main id="slidebox" :class="$style.container">
-            <section id="top" :class="[$style.area, $style.area_top]">
-                <h1>
-                    {{top.hello}}
-                </h1>
+            <section :class="[$style.area, $style.area_top]">
+                    <h1 :class="$style.title">
+                        <slide-effect> {{top.hello}} </slide-effect>
+                    </h1>
             </section>
             <hr :class="$style.line"/>
-            <section :id="sections[0]" :class="[$style.area, $style.area_mission]">
+            <section :id="sections[0]" :class="[$style.area]">
                 <fade-effect tag="div" :scrollY="scrollY" :class="$style.mission_block">
-                    <span>{{ mission.section }}</span>
+                    <span > 
+                        {{ mission.section }}
+                    </span>
                     <h2>{{ mission.title }}</h2>
                     <article>{{ mission.content }}</article>
                 </fade-effect>
             </section>
             <hr :class="$style.line"/>
             <section :id="sections[1]" :class="$style.area">
-                <fade-effect tag="div" :scrollY="scrollY">
+                <div>
                     aaaa
-                </fade-effect>
+                </div>
             </section>
             <hr :class="$style.line"/>
             <section :id="sections[2]" :class="$style.area">
-                <fade-effect tag="div" :scrollY="scrollY">
+                <div>
                     bbb
-                </fade-effect>
+                </div>
             </section>
             <hr :class="$style.line"/>
             <section :id="sections[3]" :class="$style.area">
-                <fade-effect tag="div" :scrollY="scrollY">
+                <div>
                     ccc
-                </fade-effect>
+                </div>
             </section>
             <hr :class="$style.line"/>
             <section :id="sections[4]" :class="$style.area">
-                <fade-effect tag="div" :scrollY="scrollY">
+                <div>
                     dddd
-                </fade-effect>
+                </div>
             </section>
         </main>
     </div>
@@ -47,6 +49,7 @@
 <script>
 import FixedHeader from '~/components/molecules/FixedHeader.vue'
 import FixedSidebar from '~/components/molecules/FixedSidebar.vue'
+import SlideEffect from '~/components/atomis/SlideEffect.vue'
 import FadeEffect from '~/components/atomis/FadeEffect.vue'
 import texts from '~/assets/configs/toppageTexts.json'
 
@@ -55,6 +58,7 @@ export default {
         FixedHeader,
         FixedSidebar,
         FadeEffect,
+        SlideEffect,
     },
     data() {
         return {
@@ -90,9 +94,6 @@ export default {
 }
 </script>
 
-<style lang="scss">
-</style>
-
 <style lang="scss" module>
 @import '~assets/scss/settings.scss';
 
@@ -114,7 +115,7 @@ export default {
         position:relative;
         width: 100%;
         height: 100%;
-        &>h1 {
+        & h1 {
             position:absolute;
             top: 50%;
             left: 50%;
@@ -133,5 +134,9 @@ hr.line {
     height: 1px;
     background: $line-color;
     border: none;
+}
+h1.title {
+    font-size: 2.5em;
+    font-weight: 50;
 }
 </style>

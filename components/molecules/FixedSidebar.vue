@@ -1,10 +1,13 @@
 <template>
     <aside :class="$style.container">
-        <span :class="$style.copy_text">{{ designedBy }}</span>
+        <slide-effect :class="$style.copy_text">
+            {{ designedBy }}
+        </slide-effect>
     </aside>
 </template>
 
 <script>
+import SlideEffect from '~/components/atomis/SlideEffect.vue'
 import texts from '~/assets/configs/toppageTexts.json'
 
 export default {
@@ -12,6 +15,9 @@ export default {
         return {
             designedBy: texts['DESIGNED_BY']
         }
+    },
+    components: {
+        SlideEffect,
     }
 }
 </script>
@@ -35,6 +41,22 @@ export default {
         background: #444;
         display: block;
         margin-left: 20px;
+        opacity: 0;
+        animation: feedIn 1s ease-in-out .5s forwards;
+    }
+}
+@keyframes feedIn {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0;
+    }
+    51% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
     }
 }
 </style>

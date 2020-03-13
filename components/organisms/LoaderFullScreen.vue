@@ -32,7 +32,7 @@ export default {
     async mounted() {
       await this.sleep(100)
       await this.typing()
-      await this.sleep(1000)
+      await this.sleep(100)
       await this.$refs.closeBox.close()
       this.$router.push('/home')
     },
