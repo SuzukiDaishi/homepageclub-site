@@ -25,12 +25,11 @@ export default {
 </script>
 
 <style lang="scss" module>
-
 .wrapper {
     width: 100%;
     height: 100%;
     &::before {
-        --color: black;
+        --color: #111;
         z-index: 30 ;
         position: absolute ;
         top: 0 ;

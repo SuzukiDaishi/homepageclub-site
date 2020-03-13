@@ -35,6 +35,8 @@ export default {
 </script>
 
 <style lang="scss" module>
+@import '~assets/scss/settings.scss';
+
 .effect {
     opacity: 0;
 }  
