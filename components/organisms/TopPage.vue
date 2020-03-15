@@ -4,8 +4,10 @@
         <fixed-sidebar />
         <main id="slidebox" :class="$style.container">
             <section :class="[$style.area, $style.area_top]">
-                    <h1 :class="$style.title">
-                        <slide-effect> {{top.hello}} </slide-effect>
+                    <h1 :class=" $device.isDesktop ? $style.title : $style.title_sp ">
+                        <span>
+                            <slide-effect> {{ $device.isDesktop ? top.hello : top.helloSp }} </slide-effect>
+                        </span>
                     </h1>
             </section>
             <hr :class="$style.line"/>
@@ -77,7 +79,8 @@ export default {
                 texts['HEADER_CONTACT'],
             ],
             top: {
-                hello: texts['MISSION_TOP_HELLO']
+                hello: texts['MISSION_TOP_HELLO'],
+                helloSp: texts['MISSION_TOP_HELLO_SP'],
             },
             mission: {
                 section: texts['MISSION_SECTION'],
@@ -156,5 +159,13 @@ h1.title {
     @extend %font-mintyou;
     font-size: 2.5em;
     font-weight: 50;
+}
+h1.title_sp {
+    @extend %font-mintyou;
+    padding-left: 2vw;
+    padding-right: 1.2vw;
+    font-size: 7.5vw;
+    font-weight: 50;
+    white-space: pre-line;
 }
 </style>
