@@ -21,7 +21,7 @@
             </nav>
         </div>
         <div v-else :class="$style.sp_header">
-                <button :class="$style.menu_trigger" @click="modalActive">
+                <div :class="$style.menu_trigger" @click="modalActive">
                     <slide-effect>
                         <div>
                             <span :class="$style.lines"></span>
@@ -29,7 +29,7 @@
                             <span :class="$style.lines"></span>
                         </div>
                     </slide-effect>
-                </button>
+                </div>
             <div :class="$style.sp_modal" v-if="isModal">
             </div>
         </div>
