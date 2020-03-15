@@ -23,11 +23,19 @@ export default {
 </script>
 
 <style lang="scss" module>
+@import '~assets/scss/settings.scss';
+
 .container {
     position: fixed;
     top: 0;
     right: 0;
-    transform: rotate(0.25turn) translate(350px, -240px);
+    transform: rotate(0.25turn) translate(300px, -280px);
+    @include tab {
+        transform: rotate(0.25turn) translate(400px, -240px);
+    }
+    @include pc {
+        transform: rotate(0.25turn) translate(350px, -240px);
+    }
 }
 .copy_text {
     display: flex;
@@ -38,6 +46,12 @@ export default {
         flex-grow: 1;
         height: 1px;
         width: 300px;
+        @include tab {
+            width: 300px;
+        }
+        @include pc {
+            width: 300px;
+        }
         background: #444;
         display: block;
         margin-left: 20px;

@@ -13,6 +13,10 @@ $pc: 1024px;
 $tab: 680px;
 $sp: 480px;
 
+%font-mintyou {
+  font-family: "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
+}
+
 @mixin pc {
   @media (min-width: ($pc)) {
     @content;
@@ -30,3 +34,5 @@ $sp: 480px;
     @content;
   }
 }
+
+

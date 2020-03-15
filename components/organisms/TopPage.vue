@@ -9,14 +9,19 @@
                     </h1>
             </section>
             <hr :class="$style.line"/>
-            <section :id="sections[0]" :class="[$style.area]">
-                <fade-effect tag="div" :scrollY="scrollY" :class="$style.mission_block">
-                    <span > 
-                        {{ mission.section }}
-                    </span>
-                    <h2>{{ mission.title }}</h2>
-                    <article>{{ mission.content }}</article>
-                </fade-effect>
+            <section :id="sections[0]" :class="$style.area">
+                <fixed-header-space />
+                <div :class="$style.mission_outer">
+                    <fade-effect tag="div" :scrollY="scrollY" :class="$style.mission_block">
+                        <div :class="$style.mission">
+                            <span> 
+                                {{ mission.section }}
+                            </span>
+                            <h2>{{ mission.title }}</h2>
+                            <article>{{ mission.content }}</article>
+                        </div>
+                    </fade-effect>
+                </div>
             </section>
             <hr :class="$style.line"/>
             <section :id="sections[1]" :class="$style.area">
@@ -48,6 +53,7 @@
 
 <script>
 import FixedHeader from '~/components/molecules/FixedHeader.vue'
+import FixedHeaderSpace from '~/components/molecules/FixedHeaderSpace.vue'
 import FixedSidebar from '~/components/molecules/FixedSidebar.vue'
 import SlideEffect from '~/components/atomis/SlideEffect.vue'
 import FadeEffect from '~/components/atomis/FadeEffect.vue'
@@ -56,6 +62,7 @@ import texts from '~/assets/configs/toppageTexts.json'
 export default {
     components: {
         FixedHeader,
+        FixedHeaderSpace,
         FixedSidebar,
         FadeEffect,
         SlideEffect,
@@ -123,7 +130,17 @@ export default {
         }
     }
 }
+.mission_outer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
 .mission_block {
+    width: 30%;
+}
+.mission {
+
     &>article {
         white-space:pre-wrap;
         word-wrap:break-word;
@@ -136,6 +153,7 @@ hr.line {
     border: none;
 }
 h1.title {
+    @extend %font-mintyou;
     font-size: 2.5em;
     font-weight: 50;
 }

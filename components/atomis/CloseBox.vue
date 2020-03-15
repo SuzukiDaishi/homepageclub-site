@@ -56,14 +56,14 @@ export default {
     background: $bgcolor;
     width: 0%;
     height: 100%;
-    @include pc {
-        transform: skewX(-20deg);
+    @include sp {
+        transform: skewX(-10deg);
     }
     @include tab {
         transform: skewX(-10deg);
     }
-    @include sp {
-        transform: skewX(-10deg);
+    @include pc {
+        transform: skewX(-20deg);
     }
     transform-origin: bottom left;
 }
