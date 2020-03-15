@@ -31,6 +31,10 @@
                     </slide-effect>
                 </div>
             <div :class="$style.sp_modal" v-if="isModal">
+                <div :class="$style.x_trigger" @click="modalDeactive">
+                    <span :class="$style.x_lines"></span>
+                    <span :class="$style.x_lines"></span>
+                </div>
             </div>
         </div>
     </header>
@@ -53,8 +57,10 @@ export default {
     },
     methods: {
         modalActive() {
-            console.log('hello');
             this.isModal = true
+        },
+        modalDeactive() {
+            this.isModal = false
         }
     }
 }
@@ -142,28 +148,49 @@ export default {
     animation: feedIn 1s ease-in-out .5s forwards;
 }
 
+.x_trigger {
+    z-index: 300;
+    display: inline-block;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 80px;
+    height: 80px;
+}
+
+.x_lines {
+    position: absolute;
+    background: black;  
+    left: 10px; 
+    height: 1px;
+    &:nth-child(1) {
+        transform: rotate(315deg);
+        top: 40px;
+        width: 50px;
+        transform: rotate(315deg);
+    }
+    &:nth-child(2) {
+        top: 40px;
+        width: 50px;
+        transform: rotate(-315deg);
+    }
+}
+
 .sp_modal {
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: yellowgreen;
+    background: rgb(245, 255, 224);
     z-index: 200;
 }
 
 @keyframes feedIn {
-    0% {
-        opacity: 0;
-    }
-    50% {
-        opacity: 0;
-    }
-    51% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 1;
-    }
+    0% { opacity: 0; }
+    50% { opacity: 0; }
+    51% { opacity: 1; }
+    100% { opacity: 1; }
 }
 </style>
