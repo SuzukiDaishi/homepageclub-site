@@ -38,7 +38,7 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
-    'nuxt-device-detect',
+    'nuxt-device-detect'
   ],
   /*
   ** Build configuration

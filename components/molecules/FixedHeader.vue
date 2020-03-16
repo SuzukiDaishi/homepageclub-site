@@ -23,10 +23,8 @@
         <div v-else :class="$style.sp_header">
                 <div :class="$style.menu_trigger" @click="modalActive">
                     <slide-effect>
-                        <div>
-                            <span :class="$style.lines"></span>
-                            <span :class="$style.lines"></span>
-                            <span :class="$style.lines"></span>
+                        <div :style=" isModal ? {opacity: 0} : {opacity: 1}">
+                            <span :class="$style.lines" v-for="i in 3" :key="i"></span>
                         </div>
                     </slide-effect>
                 </div>
@@ -34,6 +32,25 @@
                 <div :class="$style.x_trigger" @click="modalDeactive">
                     <span :class="$style.x_lines"></span>
                     <span :class="$style.x_lines"></span>
+                </div>
+                <div :class="$style.sp_modal_topspace"></div>
+                <div>
+                    <span 
+                        v-for="(section, i) in sections"
+                        :key="i">
+                            <nuxt-link 
+                                :class="$style.nav_item"
+                                v-scroll-to="{
+                                    el: `#${section}`,
+                                    container: `#${container}`,
+                                    duration: 0,
+                                    onStart: modalDeactive
+                                }"
+                                to>
+                                    {{ section }}
+                        </nuxt-link>
+                        <hr />
+                    </span>
                 </div>
             </div>
         </div>
@@ -76,7 +93,6 @@ export default {
 .container {
     width: 100%;
     height: 100px;
-
     padding-right: 100px;
     @include tab {
         padding-right: 20px;
@@ -90,6 +106,22 @@ export default {
     left: 0;
     z-index:100;
 }
+
+.logoblock {
+    
+    position: absolute;
+    top: 25px;
+    left: 10px;
+    h1 {
+        padding: 0;
+        margin: 0;
+        @include pc {
+            font-size: 2em;
+        }
+
+    }
+}
+
 .endblock {
     display: flex;
     justify-content: flex-end;
@@ -183,8 +215,17 @@ export default {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgb(185, 247, 255);
+    background: rgba(255, 255, 255, .9);
     z-index: 200;
+}
+
+.sp_modal_topspace {
+    width: 100%;
+    height: 80px;
+}
+
+.sp_modal_content {
+
 }
 
 @keyframes feedIn {

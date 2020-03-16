@@ -6,7 +6,7 @@
             <section :class="[$style.area, $style.area_top]">
                     <h1 :class=" $device.isDesktop ? $style.title : $style.title_sp ">
                         <span>
-                            <slide-effect> {{ $device.isDesktop ? top.hello : top.helloSp }} </slide-effect>
+                            <slide-effect> {{ lnRemove(top.hello, $device.isDesktop) }} </slide-effect>
                         </span>
                     </h1>
             </section>
@@ -80,7 +80,6 @@ export default {
             ],
             top: {
                 hello: texts['MISSION_TOP_HELLO'],
-                helloSp: texts['MISSION_TOP_HELLO_SP'],
             },
             mission: {
                 section: texts['MISSION_SECTION'],
@@ -99,8 +98,12 @@ export default {
     methods: {
         handleScroll(event) {
             this.scrollY = event.scrollTop
+        },
+        lnRemove(text, isRemove=true) {
+            if (isRemove) return text.replace(/\r?\n/g, '')
+            return text
         }
-    }
+    },
 }
 </script>
 
@@ -149,18 +152,18 @@ export default {
         word-wrap:break-word;
     }
 }
-hr.line {
+.line {
     width: 90%;
     height: 1px;
     background: $line-color;
     border: none;
 }
-h1.title {
+.title {
     @extend %font-mintyou;
     font-size: 2.5em;
     font-weight: 50;
 }
-h1.title_sp {
+.title_sp {
     @extend %font-mintyou;
     padding-left: 2vw;
     padding-right: 1.2vw;
