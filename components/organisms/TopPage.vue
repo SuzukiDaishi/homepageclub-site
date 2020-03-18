@@ -12,11 +12,12 @@
             </section>
             <hr :class="$style.line"/>
             <section :id="sections[0]" :class="$style.area">
-                <fixed-header-space />
+                <fixed-header-space v-if="$device.isDesktopOrTablet"/>
+                <div style="height:50px"></div>
                 <div :class="$style.mission_outer">
                     <fade-effect tag="div" :scrollY="scrollY" :class="$style.mission_block">
                         <div :class="$style.mission">
-                            <span> 
+                            <span :class="$style.section_name"> 
                                 {{ mission.section }}
                             </span>
                             <h2>{{ mission.title }}</h2>
@@ -143,13 +144,68 @@ export default {
     justify-content: center;
 }
 .mission_block {
-    width: 30%;
+    width: 70%;
+    text-align: center;
+    @include sp {
+        width: 100%;
+        padding-right: 10vw;
+    }
+    @include tab {
+        width: 70%;
+    }
+    @include pc {
+        width: 35%;
+    }
 }
-.mission {
 
+.mission {
+    text-align: center;
+    &>span {
+        font-size: 1.2em;
+    }
+    &>h2 {
+        @include sp {
+            font-size: 1.5em;
+        }
+        @include tab {
+            font-size: 1.4em;
+            &::before {
+                content: "「 ";
+            }
+            &::after {
+                content: " 」";
+            } 
+        }
+        @include pc {
+            font-size: 2em;
+            &::before {
+                content: "「 ";
+            }
+            &::after {
+                content: " 」";
+            } 
+        }
+    }
     &>article {
-        white-space:pre-wrap;
-        word-wrap:break-word;
+        @include sp {
+            padding: 3vh 2vw;
+            text-align: left;
+            line-height: 3vh;
+            white-space:pre-wrap;
+        }
+        @include tab {
+            padding-top: 6vh;
+            text-align: left;
+            line-height: 3vh;
+            white-space:pre-wrap;
+        }
+        @include pc {
+            padding-top: 6vh;
+            text-align: left;
+            line-height: 35px;
+            white-space:pre-wrap;
+            word-wrap:break-word;
+        }
     }
 }
 .line {

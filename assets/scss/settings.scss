@@ -30,7 +30,7 @@ $sp: 480px;
 }
 
 @mixin sp {
-  @media (min-width: ($sp)) {
+  @media (max-width: ($tab)) {
     @content;
   }
 }
