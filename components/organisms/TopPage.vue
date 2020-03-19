@@ -4,7 +4,7 @@
         <fixed-sidebar />
         <main id="slidebox" :class="$style.container">
             <section :class="[$style.area, $style.area_top]">
-                    <h1 :class=" $device.isDesktop ? $style.title : $style.title_sp ">
+                    <h1 :class="$device.isDesktop ? $style.title : $style.title_sp ">
                         <span>
                             <slide-effect> {{ lnRemove(top.hello, $device.isDesktop) }} </slide-effect>
                         </span>
@@ -12,8 +12,7 @@
             </section>
             <hr :class="$style.line"/>
             <section :id="sections[0]" :class="$style.area">
-                <fixed-header-space v-if="$device.isDesktopOrTablet"/>
-                <div style="height:50px"></div>
+                <fixed-header-space :isSmart="true"/>
                 <div :class="$style.mission_outer">
                     <fade-effect tag="div" :scrollY="scrollY" :class="$style.mission_block">
                         <div :class="$style.mission">
@@ -28,8 +27,9 @@
             </section>
             <hr :class="$style.line"/>
             <section :id="sections[1]" :class="$style.area">
-                <div>
-                    aaaa
+                <div style="text-align:center">
+                    <fixed-header-space />
+                    まだ出来てない...
                 </div>
             </section>
             <hr :class="$style.line"/>
@@ -136,6 +136,7 @@ export default {
             transform: translate(-50%, -50%);
         }
     }
+    overflow: visible;
 }
 .mission_outer {
     width: 100%;
